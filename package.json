@@ -1,0 +1,26 @@
+{
+  "name": "gdax-lambda-buyer",
+  "version": "1.0.0",
+  "description": "A Lambda function for recurring cryptocurrency purchases.",
+  "main": "handler.js",
+  "scripts": {
+    "test-dev": "serverless invoke local --function buy --stage dev",
+    "test-prod": "serverless invoke local --function buy --stage prod",
+    "deploy": "serverless deploy --stage prod"
+  },
+  "author": "Alfonso Gober <alfonso.gober.jr@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-source-map-support": "^1.0.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "gdax": "coinbase/gdax-node",
+    "serverless-webpack": "^4.0.0",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

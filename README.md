@@ -34,7 +34,7 @@ If you plan to use Sandbox money (not real fiat currency), you will also need to
 
 If you only plan to use real money (USD/EUR), you only need to deposit funds on the real GDAX site.
 
-Next, Create a file called `credentials.json` with the following contents:
+Next, create a file called `credentials.json` with the following contents:
 
 ```
 {
@@ -73,7 +73,7 @@ functions:
   buy:
     handler: handler.buy
     events:
-      - schedule: rate(1 week) # Change this to your liking.
+      - schedule: rate(7 days) # Change this to your liking.
 
 ...
 

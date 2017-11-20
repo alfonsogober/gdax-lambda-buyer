@@ -2,7 +2,9 @@ service: gdax-lambda-buyer
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  webpackIncludeModules: true
+  webpackIncludeModules:
+    forceInclude:
+      - gdax
 
 provider:
   name: aws
@@ -31,7 +33,7 @@ functions:
   buy:
     handler: handler.buy
     events:
-      - schedule: rate(1 week)
+      - schedule: rate(7 days)
 
 plugins:
   - serverless-webpack

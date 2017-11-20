@@ -1,4 +1,4 @@
-const Gdax = require('gdax')
+const Gdax = require('./gdax-node')
 const authedClient = new Gdax.AuthenticatedClient(process.env.GDAX_API_KEY, process.env.GDAX_API_SECRET, process.env.GDAX_PASSPHRASE, process.env.GDAX_URI)
 
 export const buy = async (event, context, callback) => {

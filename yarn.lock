@@ -1400,15 +1400,6 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gdax@coinbase/gdax-node:
-  version "0.5.0"
-  resolved "https://codeload.github.com/coinbase/gdax-node/tar.gz/9a59db269857d10cb449c44cd6a0f51c630abd5c"
-  dependencies:
-    bintrees "1.0.1"
-    num "0.3.0"
-    request "2.81.0"
-    ws "3.0.0"
-
 get-caller-file@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"

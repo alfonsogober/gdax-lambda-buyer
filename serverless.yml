@@ -2,9 +2,7 @@ service: gdax-lambda-buyer
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  webpackIncludeModules:
-    forceInclude:
-      - gdax
+  webpackIncludeModules: true
 
 provider:
   name: aws

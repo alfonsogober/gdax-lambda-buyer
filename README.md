@@ -8,6 +8,7 @@ A Lambda function for recurring cryptocurrency purchases.
 * [Getting Started](#who-needs-this)
 * [API Keys](#api-keys)
 * [Adjust Parameters](#adjust-parameters)
+* [One-Time Buys](#one-time-buys)
 * [Test](#test)
 * [Deploy](#deploy)
 * [Disclaimer](#disclaimer)

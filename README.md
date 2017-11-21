@@ -96,7 +96,7 @@ Note that ETH and LTC are supported in prod, but not in the sandbox for some rea
 
 ## One-Time Buys
 
-You don't have to deploy at all, if you just want a quick way to purchase, say, $10 worth of BTC you can run
+You don't have to deploy at all, if you just want a quick way to purchase, say, $5 worth of BTC (with the default settings) you can run
 
 ```
 yarn run all

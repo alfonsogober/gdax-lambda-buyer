@@ -89,7 +89,7 @@ functions:
 
 So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week.
 
-You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 100, etc. The possibilities are endless (as long as your bank account is 💸).
+You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333, etc. The possibilities are endless (as long as your bank account is 💸).
 
 Note that ETH and LTC are supported in prod, but not in the sandbox for some reason. So stick to BTC if you're using sandbox money.
 

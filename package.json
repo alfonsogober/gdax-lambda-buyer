@@ -1,11 +1,13 @@
 {
   "name": "gdax-lambda-buyer",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Lambda function for recurring cryptocurrency purchases.",
   "main": "handler.js",
   "scripts": {
-    "test-dev": "serverless invoke local --function buy --stage dev",
-    "test-prod": "serverless invoke local --function buy --stage prod",
+    "btc": "serverless invoke local --function buyBitcoin --stage prod",
+    "eth": "serverless invoke local --function buyEthereum --stage prod",
+    "ltc": "serverless invoke local --function buyLitecoin --stage prod",
+    "test": "serverless invoke local --function buyBitcoin --stage dev",
     "deploy": "serverless deploy --stage prod"
   },
   "author": "Alfonso Gober <alfonso.gober.jr@gmail.com>",

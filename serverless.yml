@@ -16,9 +16,8 @@ provider:
     GDAX_API_KEY: ${file(./credentials.json):${self:custom.stage}.gdaxAPIKey}
     GDAX_API_SECRET: ${file(./credentials.json):${self:custom.stage}.gdaxAPISecret}
     GDAX_URI: ${file(./credentials.json):${self:custom.stage}.gdaxURI}
-    FIAT_AMOUNT: 10
+    FIAT_AMOUNT: 15
     FIAT_TYPE: 'USD'
-    CRYPTO_TYPE: 'BTC'
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -28,8 +27,16 @@ provider:
       Resource: "*"
 
 functions:
-  buy:
-    handler: handler.buy
+  buyBitcoin:
+    handler: handler.buyBitcoin
+    events:
+      - schedule: rate(7 days)
+  buyEthereum:
+    handler: handler.buyEthereum
+    events:
+      - schedule: rate(7 days)
+  buyLitecoin:
+    handler: handler.buyLitecoin
     events:
       - schedule: rate(7 days)
 

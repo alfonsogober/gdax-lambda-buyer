@@ -1,22 +1,46 @@
 const Gdax = require('./gdax-node')
 const authedClient = new Gdax.AuthenticatedClient(process.env.GDAX_API_KEY, process.env.GDAX_API_SECRET, process.env.GDAX_PASSPHRASE, process.env.GDAX_URI)
 
-export const buy = async (event, context, callback) => {
+export const buyBitcoin = async (event, context, callback) => {
   try {
-    let params = {
-      'product_id': `${process.env.CRYPTO_TYPE}-${process.env.FIAT_TYPE}`
-    }
-    if (process.env.FIAT_AMOUNT || process.env.CRYPTO_AMOUNT) {
-      params.type = 'market'
-      if (process.env.FIAT_AMOUNT) params.funds = process.env.FIAT_AMOUNT
-      else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT
-      let order = await authedClient.buy(params)
-      console.log(order)
-      succeed(context)
-    } else fail(context, new Error('Must specify either FIAT_AMOUNT or CRYPTO_AMOUNT'))
+    let order = await buy('BTC')
+    console.log(order)
+    succeed(context)
   } catch (err) {
     fail(context, err)
   }
+}
+
+export const buyEthereum = async (event, context, callback) => {
+  try {
+    let order = await buy('ETH')
+    console.log(order)
+    succeed(context)
+  } catch (err) {
+    fail(context, err)
+  }
+}
+
+export const buyLitecoin = async (event, context, callback) => {
+  try {
+    let order = await buy('LTC')
+    console.log(order)
+    succeed(context)
+  } catch (err) {
+    fail(context, err)
+  }
+}
+
+async function buy (cryptoType) {
+  let params = {
+    'product_id': `${cryptoType}-${process.env.FIAT_TYPE}`
+  }
+  if (process.env.FIAT_AMOUNT || process.env.CRYPTO_AMOUNT) {
+    params.type = 'market'
+    if (process.env.FIAT_AMOUNT) params.funds = process.env.FIAT_AMOUNT / 3
+    else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT
+    return authedClient.buy(params)
+  } else throw new Error('Must specify either FIAT_AMOUNT or CRYPTO_AMOUNT')
 }
 
 function succeed (context) {

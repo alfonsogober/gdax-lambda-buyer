@@ -8,6 +8,7 @@ A Lambda function for recurring cryptocurrency purchases.
 * [Getting Started](#who-needs-this)
 * [API Keys](#api-keys)
 * [Adjust Parameters](#adjust-parameters)
+* [Test](#test)
 * [Deploy](#deploy)
 * [Disclaimer](#disclaimer)
 
@@ -64,14 +65,21 @@ Take a look at `serverless.yml`. The relevant sections are listed below.
 
   environment:
     ...
-    FIAT_AMOUNT: 10       # The amount of fiat you wish to exchange for crypto
+    FIAT_AMOUNT: 15       # The amount of fiat you wish to exchange for crypto
     FIAT_TYPE: 'USD'      # The type of fiat you plan to use. Also supports EUR/GBP
-    CRYPTO_TYPE: 'BTC'    # The type of cryptocurrency you wish to buy.
 ...
 
 functions:
-  buy:
-    handler: handler.buy
+  buyBitcoin:
+    handler: handler.buyBitcoin
+    events:
+      - schedule: rate(7 days) # Change this to your liking.
+  buyEthereum:
+    handler: handler.buyEthereum
+    events:
+      - schedule: rate(7 days) # Change this to your liking.
+  buyLitecoin:
+    handler: handler.buyLitecoin
     events:
       - schedule: rate(7 days) # Change this to your liking.
 
@@ -79,9 +87,9 @@ functions:
 
 ```
 
-So with the default settings, gdax-lambda-buyer will buy $10 worth of Bitcoin every week.
+So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week.
 
-You can also replace `FIAT_AMOUNT=10` with `CRYPTO_AMOUNT=0.1` and buy 0.1 BTC every week. Change to 100 and you'd buy 100, etc. The possibilities are endless (as long as your bank account is 💸).
+You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=0.15` and buy 0.1 BTC every week. Change to 100 and you'd buy 100, etc. The possibilities are endless (as long as your bank account is 💸).
 
 Note that ETH and LTC are supported in prod, but not in the sandbox for some reason. So stick to BTC if you're using sandbox money.
 
@@ -90,12 +98,20 @@ Note that ETH and LTC are supported in prod, but not in the sandbox for some rea
 You don't have to deploy at all, if you just want a quick way to purchase, say, $10 worth of BTC you can run
 
 ```
-yarn run test-prod
+yarn run btc
 ```
 
-and the function will run with your settings immediately.
+and the function will run with your settings immediately. Also supports `yarn run eth` and `yarn run ltc`.
 
 Deploying is only necessary for the recurring buy feature.
+
+If you want to test the function with sandbox money, run
+
+```
+yarn test
+```
+
+to verify that all works as expected.
 
 ## Deploy
 
@@ -110,5 +126,9 @@ will deploy your scheduled Lambda function to production, which will run on your
 Please note:
 
 ```
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT  
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO  
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER  
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE  
+USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```

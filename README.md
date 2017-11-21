@@ -89,21 +89,25 @@ functions:
 
 So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week.
 
-You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=0.15` and buy 0.1 BTC every week. Change to 100 and you'd buy 100, etc. The possibilities are endless (as long as your bank account is 💸).
+You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 0.5 BTC, ETH and LTC each every week. Change to 100 and you'd buy 100, etc. The possibilities are endless (as long as your bank account is 💸).
 
 Note that ETH and LTC are supported in prod, but not in the sandbox for some reason. So stick to BTC if you're using sandbox money.
 
-## Test
+## One-Time Buys
 
 You don't have to deploy at all, if you just want a quick way to purchase, say, $10 worth of BTC you can run
 
 ```
-yarn run btc
+yarn run all
 ```
 
-and the function will run with your settings immediately. Also supports `yarn run eth` and `yarn run ltc`.
+and the function will run with your settings immediately.
+
+Also supports `yarn run btc`, `yarn run eth` and `yarn run ltc`. These three will only purchase 1/3 of your `FIAT_AMOUNT`
 
 Deploying is only necessary for the recurring buy feature.
+
+## Test
 
 If you want to test the function with sandbox money, run
 

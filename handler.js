@@ -38,7 +38,7 @@ async function buy (cryptoType) {
   if (process.env.FIAT_AMOUNT || process.env.CRYPTO_AMOUNT) {
     params.type = 'market'
     if (process.env.FIAT_AMOUNT) params.funds = process.env.FIAT_AMOUNT / 3
-    else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT
+    else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT / 3
     return authedClient.buy(params)
   } else throw new Error('Must specify either FIAT_AMOUNT or CRYPTO_AMOUNT')
 }

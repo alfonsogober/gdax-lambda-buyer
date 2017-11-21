@@ -90,13 +90,13 @@ functions:
 
 So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week.
 
-You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333, etc. The possibilities are endless (as long as your bank account is 💸).
+You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333 each, etc. The possibilities are endless (as long as your bank account is 💸).
 
 Note that ETH and LTC are supported in prod, but not in the sandbox for some reason. So stick to BTC if you're using sandbox money.
 
 ## One-Time Buys
 
-You don't have to deploy at all, if you just want a quick way to purchase, say, $5 worth of BTC (with the default settings) you can run
+You don't have to deploy at all, if you just want a quick way to purchase all three cryptocurrencies at once, you can run
 
 ```
 yarn run all
@@ -104,7 +104,7 @@ yarn run all
 
 and the function will run with your settings immediately.
 
-Also supports `yarn run btc`, `yarn run eth` and `yarn run ltc`. These three will only purchase 1/3 of your `FIAT_AMOUNT`
+Also supports `yarn run btc`, `yarn run eth` and `yarn run ltc`, which will only purchase 1/3 of your `FIAT_AMOUNT` each.
 
 Deploying is only necessary for the recurring buy feature.
 
@@ -124,7 +124,7 @@ to verify that all works as expected.
 yarn run deploy
 ```
 
-will deploy your scheduled Lambda function to production, which will run on your specified schedule.
+will deploy your scheduled Lambda functions to production, which will run on your specified schedule.
 
 ## Disclaimer
 

@@ -57,6 +57,10 @@ Next, create a file called `credentials.json` with the following contents:
 }
 ```
 
+If only using the purchase features the API scopes required are: `trade`
+
+If also using the deposit features the `transfer` scope is also required.
+
 Save and close. This file is listed in .gitignore so you don't have to worry about accidentally checking it in to Git.
 
 ### Adjust Parameters

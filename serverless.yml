@@ -32,18 +32,18 @@ functions:
     handler: handler.deposit
     events:
       - schedule: rate(7 days)
-  # buyBitcoin:
-  #   handler: handler.buyBitcoin
-  #   events:
-  #     - schedule: rate(7 days)
-  # buyEthereum:
-  #   handler: handler.buyEthereum
-  #   events:
-  #     - schedule: rate(7 days)
-  # buyLitecoin:
-  #   handler: handler.buyLitecoin
-  #   events:
-  #     - schedule: rate(7 days)
+  buyBitcoin:
+    handler: handler.buyBitcoin
+    events:
+      - schedule: rate(7 days)
+  buyEthereum:
+    handler: handler.buyEthereum
+    events:
+      - schedule: rate(7 days)
+  buyLitecoin:
+    handler: handler.buyLitecoin
+    events:
+      - schedule: rate(7 days)
 
 plugins:
   - serverless-webpack

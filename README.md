@@ -2,7 +2,7 @@
 
 [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/16Ui8XPa6c3Z2P6tRuWFesrAyppgNnZHQm)](https://en.cryptobadges.io/donate/16Ui8XPa6c3Z2P6tRuWFesrAyppgNnZHQm) [![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x3fC09955c9fbFE0fE0AF39E0f1587370627ED77a)](https://en.cryptobadges.io/donate/0x3fC09955c9fbFE0fE0AF39E0f1587370627ED77a) [![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LLFnB7p173qGsH3U3EXuMYzGw5qv31rJxA)](https://en.cryptobadges.io/donate/LLFnB7p173qGsH3U3EXuMYzGw5qv31rJxA)
 
-A Lambda function for recurring cryptocurrency purchases.
+A set of Lambda functions for recurring cryptocurrency purchases.
 
 ## Table of Contents
 

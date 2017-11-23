@@ -4,6 +4,7 @@
   "description": "A Lambda function for recurring cryptocurrency purchases.",
   "main": "handler.js",
   "scripts": {
+    "all": "yarn run btc && yarn run eth && yarn run ltc",
     "btc": "serverless invoke local --function buyBitcoin --stage prod",
     "eth": "serverless invoke local --function buyEthereum --stage prod",
     "ltc": "serverless invoke local --function buyLitecoin --stage prod",

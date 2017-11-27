@@ -9,6 +9,7 @@
     "eth": "serverless invoke local --function buyEthereum --stage prod",
     "ltc": "serverless invoke local --function buyLitecoin --stage prod",
     "test": "serverless invoke local --function buyBitcoin --stage dev",
+    "deposit": "serverless invoke local --function deposit --stage dev",
     "deploy": "serverless deploy --stage prod"
   },
   "author": "Alfonso Gober <alfonso.gober.jr@gmail.com>",

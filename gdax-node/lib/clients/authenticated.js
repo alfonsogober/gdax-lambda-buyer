@@ -240,9 +240,18 @@ class AuthenticatedClient extends PublicClient {
     return this.post(['position/close'], { body: params }, callback);
   }
 
-  deposit(params, callback) {
+  depositCoinbase(params, callback) {
     this._requireParams(params, ['amount', 'currency', 'coinbase_account_id']);
     return this.post(['deposits/coinbase-account'], { body: params }, callback);
+  }
+
+  depositPaymentMethod(params, callback) {
+    this._requireParams(params, ['amount', 'currency', 'payment_method_id']);
+    return this.post(
+      ['deposits/payment-method'],
+      { body: params },
+      callback
+    );
   }
 
   withdraw(params, callback) {
@@ -258,6 +267,11 @@ class AuthenticatedClient extends PublicClient {
     this._requireParams(body, ['amount', 'currency', 'crypto_address']);
     return this.post(['withdrawals/crypto'], { body }, callback);
   }
+
+  getPaymentMethods(callback) {
+    return this.get(['payment-methods'], callback);
+  }
+
 
   _requireParams(params, required) {
     for (let param of required) {

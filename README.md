@@ -57,6 +57,10 @@ Next, create a file called `credentials.json` with the following contents:
 }
 ```
 
+If only using the purchase features the API scopes required are: `trade`
+
+If also using the deposit features the `transfer` scope is also required.
+
 Save and close. This file is listed in .gitignore so you don't have to worry about accidentally checking it in to Git.
 
 ### Adjust Parameters
@@ -68,6 +72,7 @@ Take a look at `serverless.yml`. The relevant sections are listed below.
 
   environment:
     ...
+    DEPOSIT_AMOUNT: 15    # The amount of fiat you wish to deposit
     FIAT_AMOUNT: 15       # The amount of fiat you wish to exchange for crypto
     FIAT_TYPE: 'USD'      # The type of fiat you plan to use. Also supports EUR/GBP
 ...
@@ -90,7 +95,7 @@ functions:
 
 ```
 
-So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week.
+So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $15 spent) every week. It will also deposit $15 every week.
 
 You can also replace `FIAT_AMOUNT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333 each, etc. The possibilities are endless (as long as your bank account is 💸).
 

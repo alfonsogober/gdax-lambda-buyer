@@ -77,6 +77,15 @@ class AuthenticatedClient extends PublicClient {
     return this.get(['accounts', accountID, 'holds'], { qs: args }, callback);
   }
 
+  getPaymentMethods(accountID, args = {}, callback) {
+    if (!callback && typeof args === 'function') {
+      callback = args;
+      args = {};
+    }
+
+    return this.get(['payment-methods', accountID], { qs: args }, callback);
+  }
+
   _placeOrder(params, callback) {
     let requiredParams = ['side', 'product_id'];
     let needsSize = params.type !== 'market' && params.type !== 'stop';
@@ -243,6 +252,11 @@ class AuthenticatedClient extends PublicClient {
   deposit(params, callback) {
     this._requireParams(params, ['amount', 'currency', 'coinbase_account_id']);
     return this.post(['deposits/coinbase-account'], { body: params }, callback);
+  }
+
+  depositToPaymentMethod(params, callback) {
+    this._requireParams(params, ['amount', 'currency', 'payment_method_id']);
+    return this.post(['deposits/payment-method'], { body: params }, callback);
   }
 
   withdraw(params, callback) {

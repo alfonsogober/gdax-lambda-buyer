@@ -38,7 +38,7 @@ export const deposit = async (event, context, callback) => {
     if (paymentMethod) {
       let deposit = await authedClient.depositToPaymentMethod({
         amount: process.env.DAILY_DEPOSIT,
-        currency: 'USD',
+        currency: process.env.FIAT_TYPE,
         'payment_method_id': paymentMethod.id
       })
       console.log(deposit)

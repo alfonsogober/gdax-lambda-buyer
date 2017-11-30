@@ -17,7 +17,10 @@ provider:
     GDAX_API_SECRET: ${file(./credentials.json):${self:custom.stage}.gdaxAPISecret}
     GDAX_URI: ${file(./credentials.json):${self:custom.stage}.gdaxURI}
     FIAT_TYPE: 'USD'
-    DAILY_DEPOSIT: 5
+    DAILY_DEPOSIT: 10
+    BTC: True
+    ETH: False
+    LTC: False
   iamRoleStatements:
     - Effect: "Allow"
       Action:

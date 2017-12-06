@@ -17,7 +17,7 @@ provider:
     GDAX_API_SECRET: ${file(./credentials.json):${self:custom.stage}.gdaxAPISecret}
     GDAX_URI: ${file(./credentials.json):${self:custom.stage}.gdaxURI}
     FIAT_TYPE: 'USD'
-    DAILY_DEPOSIT: 5
+    DAILY_DEPOSIT: 10
   iamRoleStatements:
     - Effect: "Allow"
       Action:
@@ -30,19 +30,19 @@ functions:
   buyBitcoin:
     handler: handler.buyBitcoin
     events:
-      - schedule: cron(30 * * * ? *)
+      - schedule: rate(1 day)
   buyEthereum:
     handler: handler.buyEthereum
     events:
-      - schedule: cron(30 * * * ? *)
+      - schedule: rate(1 day)
   buyLitecoin:
     handler: handler.buyLitecoin
     events:
-      - schedule: cron(30 * * * ? *)
+      - schedule: rate(1 day)
   deposit:
     handler: handler.deposit
     events:
-      - schedule: cron(0 17 * * ? *)
+      - schedule: rate(1 day)
 
 plugins:
   - serverless-webpack

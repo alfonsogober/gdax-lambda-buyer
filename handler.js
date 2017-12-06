@@ -38,7 +38,7 @@ export const deposit = async (event, context, callback) => {
     if (paymentMethod) {
       let deposit = await authedClient.depositToPaymentMethod({
         amount: process.env.DAILY_DEPOSIT,
-        currency: 'USD',
+        currency: process.env.FIAT_TYPE,
         'payment_method_id': paymentMethod.id
       })
       console.log(deposit)
@@ -55,8 +55,12 @@ async function buy (cryptoType) {
   }
   if (process.env.DAILY_DEPOSIT || process.env.CRYPTO_AMOUNT) {
     params.type = 'market'
-    if (process.env.DAILY_DEPOSIT) params.funds = (process.env.DAILY_DEPOSIT / 3).toPrecision(2)
-    else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT / 3
+    var numCurrencies = 0
+    if (process.env.BTC == 'true') numCurrencies += 1
+    if (process.env.ETH == 'true') numCurrencies += 1
+    if (process.env.LTC == 'true') numCurrencies += 1
+    if (process.env.DAILY_DEPOSIT) params.funds = (process.env.DAILY_DEPOSIT / numCurrencies).toPrecision(2)
+    else if (process.env.CRYPTO_AMOUNT) params.size = process.env.CRYPTO_AMOUNT / numCurrencies
     return authedClient.buy(params)
   } else throw new Error('Must specify either FIAT_AMOUNT or CRYPTO_AMOUNT')
 }

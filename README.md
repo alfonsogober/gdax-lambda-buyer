@@ -79,7 +79,7 @@ functions:
   buyBitcoin:
     handler: handler.buyBitcoin
     events:
-      - schedule: rate(1 day) # For more info, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+      - schedule: rate(1 day) # This will deposit once per day. For more info, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
   buyEthereum:
     handler: handler.buyEthereum
     events:
@@ -91,7 +91,7 @@ functions:
   deposit:
     handler: handler.deposit
     events:
-      - schedule: rate(1 day) # this will deposit once per day at 17:00 UTC (5PM EDT)
+      - schedule: rate(1 day)
 
 ...
 

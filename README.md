@@ -68,7 +68,7 @@ Take a look at `serverless.yml`. The relevant sections are listed below.
 
   environment:
     ...
-    DAILY_DEPOSIT: 5       # The amount of fiat you wish to deposit daily
+    DAILY_DEPOSIT: 10       # The amount of fiat you wish to deposit daily
     FIAT_TYPE: 'USD'       # The type of fiat you plan to use. Also supports EUR/GBP
     BTC: True              # Whether or not to buy Bitcoin
     ETH: True              # Whether or not to buy Etherium
@@ -79,19 +79,19 @@ functions:
   buyBitcoin:
     handler: handler.buyBitcoin
     events:
-      - schedule: cron(30 * * * ? *) # You can also use rate syntax. For more info, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
+      - schedule: rate(1 day) # For more info, see https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html
   buyEthereum:
     handler: handler.buyEthereum
     events:
-      - schedule: cron(30 * * * ? *) # This will buy every hour on the :30
+      - schedule: rate(1 day)
   buyLitecoin:
     handler: handler.buyLitecoin
     events:
-      - schedule: cron(30 * * * ? *)
+      - schedule: rate(1 day)
   deposit:
     handler: handler.deposit
     events:
-      - schedule: cron(0 17 * * ? *) # this will deposit once per day at 17:00 UTC (5PM EDT)
+      - schedule: rate(1 day) # this will deposit once per day at 17:00 UTC (5PM EDT)
 
 ...
 
@@ -99,7 +99,7 @@ functions:
 
 So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $5 spent) every hour.
 
-You can also replace `DAILY_DEPOSIT=15` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333 each, etc. The possibilities are endless (as long as your bank account is 💸).
+You can also replace `DAILY_DEPOSIT=10` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333 each, etc. The possibilities are endless (as long as your bank account is 💸).
 
 Note that ETH and LTC are supported in prod, but not in the sandbox for some reason. So stick to BTC if you're using sandbox money.
 

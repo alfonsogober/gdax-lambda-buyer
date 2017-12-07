@@ -71,7 +71,7 @@ Take a look at `serverless.yml`. The relevant sections are listed below.
     DAILY_DEPOSIT: 10       # The amount of fiat you wish to deposit daily
     FIAT_TYPE: 'USD'       # The type of fiat you plan to use. Also supports EUR/GBP
     BTC: True              # Whether or not to buy Bitcoin
-    ETH: True              # Whether or not to buy Etherium
+    ETH: True              # Whether or not to buy Ethereum
     LTC: False             # Whether or not to buy Litecoin
 ...
 

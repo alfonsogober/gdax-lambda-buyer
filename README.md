@@ -97,7 +97,7 @@ functions:
 
 ```
 
-So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin, Ethereum and Litecoin (totaling $5 spent) every hour.
+So with the default settings, gdax-lambda-buyer will buy $5 worth of Bitcoin and $5 of Ethereum (totaling $10 spent) every day.
 
 You can also replace `DAILY_DEPOSIT=10` with `CRYPTO_AMOUNT=3` and buy 1 BTC, ETH and LTC each every week. Change to 100 and you'd buy 33.333 each, etc. The possibilities are endless (as long as your bank account is 💸).
 
